@@ -27,7 +27,7 @@ signif(x, y)   # Rounds x to y digits.
 exp(x)    # Computes the exponential function of x
 sum(x)    # ADds up all the values of x.
 prod(x)   # Multiplies all the values of x.
-pmax(x)   # `max(c(1, 2, 3), c(4, 5, 2))` is 5, the largest number of all the elements in both args.  But `pmax(c(1, 2, 3), c(4, 5, 2)) is c(4, 5, 2)` -- it goes by vector.
+pmax(x)   # `max(c(1, 2, 3), c(4, 5, 2))` is 5, the largest number of all the elements in both args.  But `pmax(c(1, 2, 3), c(4, 5, 2)) is c(4, 5, 3)` -- it compares vectors element-wise.
 cummax(x) # The cumulative maximum as a vector, i.e., cummax(c(x, y, z)) is c(max(x), max(c(x, y)), max(c(x, y, z)))
 diff(x)   # The difference between each point in the vector, i.e. diff(c(x, y)) is y - x.  Gets more complex with `lag`, which extends the comparison.
           # diff(c(w, x, y, z), lag = 2) is c(y - w, z - x).  `differences` applies the diff function recursively.  diff(c(1, 2, 3), differences = 2) = diff(diff(c(1, 2, 3)).
@@ -94,7 +94,7 @@ quarters(System.Date())   # Outputs the quarter (Q1, Q2, Q3, Q4) of the date.
 weekdays(System.Date())   # Outputs the day of the week (e.g., Monday).
 library(lubridate)        # Load's Hadley's lubridate package <https://github.com/hadley/lubridate> which adds functions making it easier to work with times in R.
 grep(needle, haystack)    # Searches object haystack for object needle and returns the position in haystack that needle is in.
-                          # Example: `grep(1, c(3, 2, 1))` outputs 1.  Note that needle can only be length one, so `grep(c(2, 1), c(3, 2, 1))` won't work.
+                          # Example: `grep(1, c(3, 2, 1))` outputs 3.  Note that needle can only be length one, so `grep(c(2, 1), c(3, 2, 1))` won't work.
                           # Also note that grep (and agrep, grepl, and gsub) all take regex patterns as the search string (needle).
 agrep(needle, haystack)   # Like grep, except strings can be off by a little bit.
                           # Compare `agrep('hip', 'happy')` (outputs 1) to `grep('hip', 'happy')`, which outputs `integer(0)`, or no matches.
